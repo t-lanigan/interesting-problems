@@ -25,13 +25,13 @@ t2 = time.time()
 print "Executed in:",t2 - t1
 
 #solution #3 (using function definition) FASTEST!!
-t3 = time.time()
 def f(x): return x % 3 == 0 or x % 5 == 0
 print sum(filter(f, range(1,n)))
+t3 = time.time()
 print "Executed in:",t3 - t2
 
 #solution #4(using lambda) So, real world good lambda use cases are very rare. 
-# They are significantly slower as shown by the following:
-t4 = time.time()
+
 print sum(filter(lambda x: x % 3 == 0 or x % 5 == 0, range(1,n)))
+t4 = time.time()
 print "Executed in:",t4 - t3
