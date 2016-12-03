@@ -32,12 +32,14 @@ import time
 
 def main():
 	m=[]
-	file = open('small-triangle.txt', 'r')
+	file = open('triangle.txt', 'r')
 	for line in file: m.append( map( int, line.split() ) )
 	    
 	start = time.clock()
+
+	#dynamic programming
 	for i in xrange(1, len(m)) :
-	    #faddes the ends
+	    #finds the ends
 	    m[i][0] += m[i-1][0]
 	    m[i][i] += m[i-1][i-1]
 	    #finds max in the middle values
