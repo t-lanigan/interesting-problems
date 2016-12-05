@@ -10,30 +10,31 @@
 # Evaluate the sum of all the amicable numbers under 10000.
 
 import time
+import math
 
- 
-def sum_divisors(n):
-    s = 0
-    for i in range(1,n):
-        if n % i == 0: s += i
+
+def sum_of_div(x):
+"Finds the sum of the divisors of the number"
+    s = 1
+    for i in range(2, int(math.sqrt(x)) + 1):
+        if (x % i == 0):
+            s += i
+            s += x / i
     return s
- 
-def amicable_pairs_xrange(low,high):
-    L = [sum_divisors(i) for i in range(low,high + 1)]
-    pairs = []
-    for i in range(high - low + 1):
-        ind = L[i]
-        if i + low < ind and low <= ind and ind <= high and L[ind - low] == i + low:
-            pairs.append([i+low,ind])
-    return pairs
- 
-def sum_pairs(pairs):
-    return sum([sum(pair) for pair in pairs])
- 
-start = time.time()
- 
-ans = sum_pairs(amicable_pairs_xrange(1,10000))
- 
-elapsed = time.time() - start
- 
-print("%s found in %s seconds") % (ans,elapsed)
+
+def find_sum(n):
+"find sum of amicable numbers below n"   
+    sum = 0
+    for i in range(1, n):
+        x = sum_of_div(i)
+        if (sum_of_div(x) == i):
+            if (i != x):
+                sum += i
+    return sum
+
+
+start = time.clock()
+print find_sum(10000)
+end = time.clock()
+
+print 'Found in %s seconds' % (end - start)
