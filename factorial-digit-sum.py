@@ -3,11 +3,7 @@
 
 # Find the sum of the digits in the number 100!
 
-
+import math
 n = 100
-total = 1
 
-for i in xrange(n,0,-1):
-    total *= i
-    
-print sum(map(int, str(total)))
+print sum([int(d) for d in str(math.factorial(n))])
