@@ -14,7 +14,6 @@ import math
 
 
 def sum_of_div(x):
-"Finds the sum of the divisors of the number"
     s = 1
     for i in range(2, int(math.sqrt(x)) + 1):
         if (x % i == 0):
@@ -22,8 +21,7 @@ def sum_of_div(x):
             s += x / i
     return s
 
-def find_sum(n):
-"find sum of amicable numbers below n"   
+def find_sum(n):  
     sum = 0
     for i in range(1, n):
         x = sum_of_div(i)
